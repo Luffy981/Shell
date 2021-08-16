@@ -20,5 +20,5 @@ char **tokenizer(char *buffer , char *delimiter);
 int main (int argc , char **argv[] , char **enviroment);
 void  (*match (vars_t *vars))(vars_t *vars);
 void file_exit(vars_t *vars);
-void file_number(vars_t *vars);
+void file_number(vars_t  *vars);
 #endif
