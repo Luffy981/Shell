@@ -19,7 +19,7 @@ char * str_tok(char * s, const char * toks)
 			} else
 			{
 				ret = p;
-				while (*p != *toks)
+				while (*p != *toks && *p != '\0')
 				{
 					p++;
 				}
@@ -46,7 +46,7 @@ char **tokenizer(char *buffer , char *delimiter)
 	{
 		return(NULL);
 	}
-	while ((tokens[i] = strtok(buffer,delimiter)) != NULL)
+	while ((tokens[i] = str_tok(buffer,delimiter)) != NULL)
 	{
 		i++;
 		if (i >= mcount)
@@ -59,7 +59,7 @@ char **tokenizer(char *buffer , char *delimiter)
 	}
 	return (tokens);
 }
-void main (void)
+int main (void)
 {
 	char buffer[] = "Hola mundo azucar limon y sal";
 	char *delimiter = " ";
@@ -70,4 +70,5 @@ void main (void)
 		printf("%s\n",*array);
 		array++;
 	}
+	return(0);
 }
