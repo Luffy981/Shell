@@ -1,0 +1,16 @@
+.TH MYSH 1 "August 17, 2021" "1.0" "Shell Commands Manual"
+.SH NAME
+.B  mysh\fR \ - simple UNIX command interpreter
+
+.SH SYNOPSYS
+.B mysh\fR
+.I (no options)
+.SH DESCRIPTION
+.B Simple shell\fR is one version of a command language interpreter that executes
+commands read from the standard input.
+
+.SH AUTHOR
+
+Christian Varas <ChristianVaras2020@gmail.com>
+
+Smith Flores <Luffy981@gmail.com>
