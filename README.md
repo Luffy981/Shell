@@ -1,4 +1,4 @@
-# Project: C - Simple Shell :shell:
+# Project: :monkey: C - Simple Shell :shell:
 ***
 
 ### Description
