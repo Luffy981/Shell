@@ -8,7 +8,7 @@ size_t len_str(char *str)
 {
 	size_t len = 0;
 
-	if (*str == NULL)
+	if (str == NULL)
 		return (0);
 	while (*str)
 	{

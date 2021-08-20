@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-char * str_tok(char *buffer, const char *delimiter)
+char *str_tok(char *buffer, const char *delimiter)
 {
 	static char *save = NULL;
 	char *string = NULL;

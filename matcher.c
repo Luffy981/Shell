@@ -1,27 +1,26 @@
 #include "file.h"
-void  (*match (vars_t *vars))(vars_t *vars)
+char (*match (vars_t *m))(vars_t *n)
 {
 	int i;
 	arg_t op[]={
-		{"exit" , file_exit},
-		{"hi" , file_number},
+		{"exit", file_exit},
+		{"hi", file_number},
 		{NULL,NULL}
 	};
 
 	for (i = 0 ; op[i].f != NULL ; i++)
 	{
-		if (strcmp(op[i].n, vars->arrays[0]) == 0)
+		if (strcmp(op[i].n,(char*)m->arrays[0]) == 0)
 			break;
 	}
-	if(op[i].f != NULL)
-		op[i].f(vars);
+	return(op[i].f);
 }
-void file_exit(vars_t *vars)
+char file_exit(vars_t *vars)
 {
 	exit(98);
 }
-void file_number(vars_t *vars)
+char file_number(vars_t *vars)
 {
-	printf("$ ");
 	printf("Hola mundo\n");
+	return(0);
 }
