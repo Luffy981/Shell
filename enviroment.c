@@ -37,6 +37,7 @@ char *str_cat(char *s1, char *s2)
 	int b;
 	int i = 0;
 	int m = 0;
+
 	a = _strlen(s1);
 	b = _strlen(s2);
 	string = malloc(sizeof(char) * (a + b + 1));
