@@ -1,16 +1,53 @@
-.TH MYSH 1 "August 17, 2021" "1.0" "Shell Commands Manual"
+.\" Man page for Project 0x16. C - Simple Shell
+.TH Simple Shell Manpage "12 August 2020" "version 1.0"
 .SH NAME
-.B  mysh\fR \ - simple UNIX command interpreter
+.B simple_shell - Simple UNIX command interpreter
 
-.SH SYNOPSYS
-.B mysh\fR
-.I (no options)
+simple_shell - A shell is special user program which provide an interface to user to use operating system services.
+
+It is a command language interpreter that execute commands read from input devices such as keyboards or from files.
+
+.SH SYNOPSIS
+The simple shell gets started when the user logs in or start the terminal.
+
+./hsh
+/bin/[command] [option]
+[command] [option]
+
 .SH DESCRIPTION
-.B Simple shell\fR is one version of a command language interpreter that executes
-commands read from the standard input.
+Shell can be accessed by user using a command line interface. A special program called Terminal in linux is provided to type in the human readable commands such as env, ls etc. and then it is being execute.
+
+.SH EXAMPLE
+$  /bin/ls -l
+  -rw-r--r-- 1 root root     510 Aug 17 19:39 token.c
+    -rwxr-xr-x 1 root root   17264 Aug 17 13:37 shell
+      -rw-r--r-- 1 root root    1526 Aug 17 16:45 shell.c
+        -rw-r--r-- 1 root root     615 Aug 18 11:37 simpleshell.h
+	  -rw-r--r-- 1 root root     728 Aug 14 18:50 match.c
+
+$  ls -l
+  -rw-r--r-- 1 root root     510 Aug 17 19:39 token.c
+    -rwxr-xr-x 1 root root   17264 Aug 17 13:37 shell
+      -rw-r--r-- 1 root root    1526 Aug 17 16:45 shell.c
+        -rw-r--r-- 1 root root     615 Aug 18 11:37 simpleshell.h
+	  -rw-r--r-- 1 root root     728 Aug 14 18:50 match.c
+
+$ /bin/pwd
+  /root/simple_shell
+
+$ hhhhh
+  ./shell: No such file or directory
+
+.SH BUILTIN COMMANDS
+
+.SS env
+- list the current environment variables
+
+.SS exit
+- exit the shell
+
+.SH SEE ALSO
+access(2), bash (1), chdir(2), execve(2), _exit(2), exit(3), fflush(3), fork(2), free(3), isatty(3), getcwd(3), malloc(3), open(2), read(2), sh(1), signal(2), stat(2), wait(2), write(2)
 
 .SH AUTHOR
-
-Christian Varas <ChristianVaras2020@gmail.com>
-
-Smith Flores <Luffy981@gmail.com>
+Smith Flores and Christian Varas

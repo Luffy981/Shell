@@ -8,6 +8,8 @@ char * str_tok(char *buffer, const char *delimiter)
 	buffer = buffer ? buffer : save;
 	if (*buffer != '\0')
 	{
+		while(*buffer == ' ')
+			buffer++;
 		set = buffer;
 		if (!*set)
 		{
@@ -44,6 +46,8 @@ char **tokenizer(char *buffer , char *delimiter)
 	{
 		return(NULL);
 	}
+	while(*buffer == ' ')
+		buffer++;
 	while ((tokens[i] = str_tok(buffer,delimiter)) != NULL)
 	{
 		i++;

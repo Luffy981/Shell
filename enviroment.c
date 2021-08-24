@@ -57,3 +57,23 @@ char *str_cat(char *s1, char *s2)
 	string[i] = '\0';
 	return(string);
 }
+
+char *MyStrDup(const char *str)
+{
+	char *result = malloc(sizeof(char) * (strlen(str) + 1));
+	if (result == NULL)
+	{
+		return NULL;
+	}
+
+	int i = 0;
+	while(str[i] != '\0')
+	{
+		result[i] = str[i];
+		i++;
+	}
+
+	result[i] = '\0';
+
+	return result;
+}

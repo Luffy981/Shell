@@ -1,0 +1,12 @@
+1:	ls
+2:	pwd
+3:	ls -la
+4:	history
+5:	exit
+6:	ls 
+7:	pwd
+8:	ps
+9:	ps -a
+10:	find .
+11:	history
+12:	exit

@@ -9,6 +9,8 @@ void check_path(vars_t *vars, char **enviroment)
 	{
 	case 0:      /*Child created*/ /*execute pathname*/
 		execve(vars->arrays[0], vars->arrays, enviroment);
+		free_struct(vars);/*free memory of child*/
+		exit(errno);/*kill the fu*** child*/
 		break;
 	case -1:     /*Error to create a child*/
 		printf("Error to create a child");
@@ -17,7 +19,7 @@ void check_path(vars_t *vars, char **enviroment)
 		wait(&status); /*Wait for the child to finish*/
 		break;
 	}
-	free(vars);
+	free_struct(vars); /*free memory of parent*/
 }
 int check2_path(vars_t *vars, char **enviroment)
 {
@@ -33,13 +35,10 @@ int check2_path(vars_t *vars, char **enviroment)
 	for(i = 0; i < 30; i++)
 		if(_strncmp(enviroment[i], "PATH", 4) == 0)/*Find string PATH*/
 			break;
-	duplicate = malloc((sizeof(char) * strlen(enviroment[i])) + 1);
-	if(duplicate == NULL)
-		return(0);
 	duplicate = strdup(enviroment[i]); /* Duplicate PATH string*/
 	tokens = tokenizer(duplicate, delim);
 	i = 0;
-	while(tokens != NULL && i < 9)
+	while(tokens[i] != NULL)
 	{
 		pun1 = str_cat(tokens[i], "/"); /*Form to pathname*/
 		pun2 = str_cat(pun1, vars->arrays[0]);
@@ -50,6 +49,7 @@ int check2_path(vars_t *vars, char **enviroment)
 			{
 			case 0: /*Child created*/ /*Execute pathname*/
 				execve(pun2, vars->arrays, enviroment);
+				exit(errno); /*kill the fu*** child*/
 				break;
 			case -1: /*Error to create a child*/
 				printf("Error to create a child");
@@ -60,12 +60,30 @@ int check2_path(vars_t *vars, char **enviroment)
 			}
 			free(pun1);
 			free(pun2);
+			free(duplicate);
+			free(tokens);
 			return(0);
 		}
 		free(pun1);
 		free(pun2);
 		i++;
 	}
+	free(duplicate);
 	if(i == 9)
 		return(1);
+}
+int iter_number(char *buffer)
+{
+	char delimiter = ';';
+	int i = 0;
+	int count = 0;
+	while(buffer[i])
+	{
+		if(buffer[i] == delimiter)
+		{
+			count += 1;
+		}
+		i++;
+	}
+	return(count);
 }
