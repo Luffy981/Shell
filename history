@@ -1,22 +1,10 @@
-1:	ls -lka
-2:	ls -k
-3:	clear
-4:	exit
+1:	ls
+2:	ls -lexit
+3:	exit
+4:	ls
 5:	ls -la
-6:	ls
-7:	pwd
-8:	help
-9p' to see this list.
-Ty:	help history
-1564104604:	help cd
-2463422364:	history
-3537164188:	asdas
-3537164188:	asdasdkkasd
-3537164188:	history
-3537164188:	history
-3537164188:	sadasdlkas
-3537164188:	sdasdkjaskjdask
-3537164188:	dsfkldskfas
-3537164188:	csklcask
-3537164188:	history
-3537164188:	exit
+6:	help
+7ally.  Type `help' to sA:	help help
+1516328841:	help exit
+1456560009:	clear
+1456560009:	exit

@@ -1,79 +1,64 @@
 #include "file.h"
-int _strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t i = 0;
+extern char **environ;
 
-	while (s1[i] == s2[i] && i < n)
+char *_getenv(char *path_name)
+{
+	char **environ_cursor, *env_ptr, *name_ptr;
+
+	environ_cursor = environ;
+	while (*environ_cursor)
 	{
-		if(i + 1 == n)
+		env_ptr = *environ_cursor;
+		name_ptr = path_name;
+		while (*env_ptr == *name_ptr)
 		{
-			break;
+			if (*env_ptr == '=')
+				break;
+			env_ptr++;
+			name_ptr++;
 		}
-
-		i++;
+		if ((*env_ptr == '=') && (*name_ptr == '\0'))
+			return (env_ptr + 1);
+		environ_cursor++;
 	}
-
-	if (s1[i] == s2[i])
-	{
-		return (0);
-	}
-	return (1);
+	return (NULL);
 }
-int _strlen(char *s)
+
+int _setenv(char *path_name)
 {
+	char buffer[100];
+	char *vodka;
+	char *pwd;
+	char *duplicate;
 	int i;
-
-	i = 0;
-	while (s[i] != '\0')
+	int a = 0;
+	for(i = 0; i < 30; i++)
+		if(_strncmp(environ[i], path_name, strlen(path_name)) == 0)
+			break;
+	duplicate = strdup(environ[i]);
+	while(duplicate[a] != '=')
 	{
-		i++;
+		a++;
 	}
-	return (i);
-}
-char *str_cat(char *s1, char *s2)
-{
-	char *string;
-	int a;
-	int b;
-	int i = 0;
-	int m = 0;
-
-	a = _strlen(s1);
-	b = _strlen(s2);
-	string = malloc(sizeof(char) * (a + b + 1));
-	if(string == NULL)
-		return(NULL);
-	while(s1[i] != '\0')
+	pwd = getcwd(buffer,100);
+	vodka = malloc(sizeof(char) * (a + strlen(pwd) + 1));
+	if(vodka == NULL)
+		return(0);
+	a = 0;
+	while(duplicate[a] != '/')
 	{
-		string[i] = s1[i];
-		i++;
+		vodka[a] = duplicate [a];
+		a++;
 	}
-	while(s2[m] != '\0')
+	while(*pwd !='\0')
 	{
-		string[i] = s2[m];
-		i++;
-		m++;
+		vodka[a] = *pwd;
+		a++;
+		pwd++;
 	}
-	string[i] = '\0';
-	return(string);
-}
-
-char *MyStrDup(const char *str)
-{
-	char *result = malloc(sizeof(char) * (strlen(str) + 1));
-	if (result == NULL)
-	{
-		return NULL;
-	}
-
-	int i = 0;
-	while(str[i] != '\0')
-	{
-		result[i] = str[i];
-		i++;
-	}
-
-	result[i] = '\0';
-
-	return result;
+	vodka[a] = '\0';
+	environ[i] = vodka;
+	free(vodka);
+	free(duplicate);
+	return(1);
 }
