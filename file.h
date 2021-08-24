@@ -30,6 +30,12 @@ typedef struct arguments
 	char (*f)(vars_t *r); /*Pointer to function after do match*/
 }arg_t;
 
+typedef struct com_help
+{
+	char *name;
+	char (*p)(vars_t *r);
+}help_v;
+
 int main (int argc , char *argv[] , char **enviroment);
 char **tokenizer(char *buffer , char *delimiter);
 char (*match (vars_t *m))(vars_t *n);
@@ -59,4 +65,10 @@ int _atoi(char *string_number);
 unsigned int un_int_to_buffer(int number, char *buffer, int idx);
 int sizeofnum(int number);
 char *get_index(void);
+char help_func(vars_t *vars);
+char print_exit(vars_t *vars);
+char (*help_match(vars_t *vars))(vars_t *vars);
+char print_cd(vars_t *vars);
+char print_help(vars_t *vars);
+char help_print_history(vars_t *vars);
 #endif

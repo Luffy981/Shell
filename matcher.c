@@ -6,6 +6,7 @@ char (*match (vars_t *m))(vars_t *n)
 		{"exit", file_exit},
 		{"cd", change_directory},
 		{"history", print_history},
+		{"help", help_func},
 		{NULL,NULL}
 	};
 

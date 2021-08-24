@@ -1,12 +1,22 @@
-1:	ls
-2:	pwd
-3:	ls -la
-4:	history
-5:	exit
-6:	ls 
+1:	ls -lka
+2:	ls -k
+3:	clear
+4:	exit
+5:	ls -la
+6:	ls
 7:	pwd
-8:	ps
-9:	ps -a
-10:	find .
-11:	history
-12:	exit
+8:	help
+9p' to see this list.
+Ty:	help history
+1564104604:	help cd
+2463422364:	history
+3537164188:	asdas
+3537164188:	asdasdkkasd
+3537164188:	history
+3537164188:	history
+3537164188:	sadasdlkas
+3537164188:	sdasdkjaskjdask
+3537164188:	dsfkldskfas
+3537164188:	csklcask
+3537164188:	history
+3537164188:	exit

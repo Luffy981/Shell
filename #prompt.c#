@@ -34,7 +34,7 @@ int main (int argc , char *argv[] , char **enviroment)
 	}
 	while(getline(&(vars.buffer),&buffer_len,stdin) != -1)
 	{
-		a
+		add_history(&vars);
 		vars.arrays = tokenizer(vars.buffer,delimiter);
 		if(vars.arrays == NULL)
 		{
