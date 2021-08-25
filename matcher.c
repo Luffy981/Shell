@@ -33,7 +33,7 @@ char file_exit(vars_t *vars)
 	free(vars->buffer);
 
 	exit(98);
-	return(0);
+	return (0);
 }
 /**
  * change_directory - Function to change directory

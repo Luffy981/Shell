@@ -72,7 +72,7 @@ int check2_path(vars_t *vars, char **enviroment)
 		}
 		free(pun1), free(pun2), i++;
 	}
-	free(duplicate),free(tokens);
+	free(duplicate), free(tokens);
 	if (i == 9)
 		return (1);
 }
