@@ -29,8 +29,11 @@ char (*match(vars_t *m))(vars_t *n)
  */
 char file_exit(vars_t *vars)
 {
-	free_struct(vars);
-	return (0);
+	/*free_struct(vars);*/
+	free(vars->buffer);
+
+	exit(98);
+	return(0);
 }
 /**
  * change_directory - Function to change directory

@@ -82,7 +82,7 @@ int main(int argc, char *argv[], char **enviroment)
 	signal_C();
 	while (getline(&(vars.buffer), &buffer_len, stdin) != -1)
 	{
-		add_history(&vars);
+		/*add_history(&vars);*/
 		vars.arrays = tokenizer(vars.buffer, delimiter);
 		if (vars.arrays == NULL)
 		{
@@ -93,6 +93,8 @@ int main(int argc, char *argv[], char **enviroment)
 			f = match(&vars);
 			check_match_return(f, &vars, enviroment);
 		}
+		free(vars.arrays);
+		/*free(vars.buffer);*/
 		continue;
 	}
 	if (isatty(STDIN_FILENO))
