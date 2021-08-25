@@ -53,7 +53,8 @@ int signal_C(void);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *str_cat(char *s1, char *s2);
 size_t len_str(char *str);
-char *MyStrDup(char *str);
+char *str_dup(char *str);
+void *fill_an_array(void *a, int el, unsigned int len);
 
 /*Check path*/
 void check_path(vars_t *vars, char **enviroment);
@@ -67,6 +68,9 @@ int iter_number(char *buffer);
 void handle_sigint(int sig);
 char change_directory(vars_t *vars);
 
+/*memory*/
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *_memcpy(char *dest, char *src, unsigned int n);
 
 /*History command*/
 void add_history(vars_t *vars);

@@ -43,7 +43,7 @@ int check2_path(vars_t *vars, char **enviroment)
 	for (i = 0; i < 30; i++)
 		if (_strncmp(enviroment[i], "PATH", 4) == 0)/*Find string PATH*/
 			break;
-	duplicate = MyStrDup(enviroment[i]); /* Duplicate PATH string*/
+	duplicate = str_dup(enviroment[i]); /* Duplicate PATH string*/
 	tokens = tokenizer(duplicate, delim);
 	i = 0;
 	while (tokens[i] != NULL)
@@ -67,12 +67,12 @@ int check2_path(vars_t *vars, char **enviroment)
 				wait(&status); /*Wait for the child to finish*/
 				break;
 			}
-			free(pun1), free(pun2), free(duplicate), free(tokens);
+			free(pun1), free(pun2);
 			return (0);
 		}
 		free(pun1), free(pun2), i++;
 	}
-	free(duplicate), free(tokens);
+	free(tokens);
 	if (i == 9)
 		return (1);
 	return(1);

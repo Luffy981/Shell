@@ -82,7 +82,7 @@ char *str_cat(char *s1, char *s2)
  * @str: String
  * Return: Return duplicated string
  */
-char *MyStrDup(char *str)
+char *str_dup(char *str)
 {
 	char *result = malloc(sizeof(char) * (len_str(str) + 1));
 	int i;
@@ -102,4 +102,25 @@ char *MyStrDup(char *str)
 	result[i] = '\0';
 
 	return (result);
+}
+/**
+ * fill_an_array - fill an array with elements
+ * @a: the given array
+ * @el: the given element
+ * @len: the length of the array
+ *
+ * Return: pointer to filled array
+ */
+void *fill_an_array(void *a, int el, unsigned int len)
+{
+	char *p = a;
+	unsigned int i = 0;
+
+	while (i < len)
+	{
+		*p = el;
+		p++;
+		i++;
+	}
+	return (a);
 }
