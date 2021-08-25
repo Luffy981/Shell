@@ -11,9 +11,13 @@
 #include <limits.h>
 #include <stdarg.h>
 #include <errno.h>
-/*macros*/
+#include <signal.h>
 
 
+/*Global Variable*/
+extern char **environ;
+
+/*Structures*/
 typedef struct variables
 {
 	char *buffer; /*Buffer to getline*/
@@ -42,6 +46,7 @@ char **tokenizer(char *buffer , char *delimiter);
 char * str_tok(char *buffer, const char *delimiter);
 char (*match (vars_t *m))(vars_t *n);
 char file_exit(vars_t *vars);
+int signal_C(void);
 
 /*Tools to strings*/
 int _strncmp(const char *s1, const char *s2, size_t n);

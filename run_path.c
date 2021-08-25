@@ -1,11 +1,17 @@
 #include "file.h"
+/**
+ * check_path - Function to check path
+ * @vars: Structure
+ * @enviroment: Enviroment
+ * Return: Return value
+ */
 void check_path(vars_t *vars, char **enviroment)
 {
 	pid_t child;
 	int status;
 
 	child = fork(); /*Create a child*/
-	switch(child)
+	switch (child)
 	{
 	case 0:      /*Child created*/ /*execute pathname*/
 		execve(vars->arrays[0], vars->arrays, enviroment);
@@ -21,31 +27,34 @@ void check_path(vars_t *vars, char **enviroment)
 	}
 	free_struct(vars); /*free memory of parent*/
 }
+/**
+ * check2_path - Function to check path
+ * @vars: Structure
+ * @enviroment: Enviroment
+ * Return: Return value
+ */
 int check2_path(vars_t *vars, char **enviroment)
 {
-	int i;
-	char *delim = ":=";
+	int i, fd, status;
 	char **tokens;
-	char *pun1 = NULL;
-	char *pun2 = NULL;
-	char *duplicate = NULL;
-	int fd;
+	char *pun1 = NULL, *pun2 = NULL, *duplicate = NULL, *delim = ":=";
 	pid_t child;
-	int status;
-	for(i = 0; i < 30; i++)
-		if(_strncmp(enviroment[i], "PATH", 4) == 0)/*Find string PATH*/
+
+	for (i = 0; i < 30; i++)
+		if (_strncmp(enviroment[i], "PATH", 4) == 0)/*Find string PATH*/
 			break;
 	duplicate = strdup(enviroment[i]); /* Duplicate PATH string*/
 	tokens = tokenizer(duplicate, delim);
 	i = 0;
-	while(tokens[i] != NULL)
+	while (tokens[i] != NULL)
 	{
 		pun1 = str_cat(tokens[i], "/"); /*Form to pathname*/
 		pun2 = str_cat(pun1, vars->arrays[0]);
-		if((fd = access(pun2, F_OK)) == 0) /*Verified pathname*/
+		fd = access(pun2, F_OK);
+		if (fd  == 0) /*Verified pathname*/
 		{
 			child = fork(); /*Create a child*/
-			switch(child)
+			switch (child)
 			{
 			case 0: /*Child created*/ /*Execute pathname*/
 				execve(pun2, vars->arrays, enviroment);
@@ -58,32 +67,33 @@ int check2_path(vars_t *vars, char **enviroment)
 				wait(&status); /*Wait for the child to finish*/
 				break;
 			}
-			free(pun1);
-			free(pun2);
-			free(duplicate);
-			free(tokens);
-			return(0);
+			free(pun1), free(pun2), free(duplicate), free(tokens);
+			return (0);
 		}
-		free(pun1);
-		free(pun2);
-		i++;
+		free(pun1), free(pun2), i++;
 	}
 	free(duplicate);
-	if(i == 9)
-		return(1);
+	if (i == 9)
+		return (1);
 }
+/**
+ * iter_number - Function to iter number
+ * @buffer: buffer
+ * Return: Return value
+ */
 int iter_number(char *buffer)
 {
 	char delimiter = ';';
 	int i = 0;
 	int count = 0;
-	while(buffer[i])
+
+	while (buffer[i])
 	{
-		if(buffer[i] == delimiter)
+		if (buffer[i] == delimiter)
 		{
 			count += 1;
 		}
 		i++;
 	}
-	return(count);
+	return (count);
 }

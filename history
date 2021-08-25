@@ -1,0 +1,104 @@
+1:	ls
+2:	pwd
+3:	ls -la
+4:	clear
+5:	exit
+6:	ls
+7:	pwd
+8:	ls -la
+9:	/bin/ls
+10:	help
+11:	help help
+12:	help cd
+13:	1:	ls
+2:	pwd
+3:	ls -la
+4:	clear
+5:	exit
+6:	ls
+7:	pwd
+8:	ls -la
+9:	/bin/ls
+10:	help
+11:	help help
+12:	help cd
+14:	help exit
+15:	helphelp history
+16:	help history
+17:	history
+18:	clear
+19:	exit
+20:	exit
+21:	asdsa
+22:	exit
+23:	exit
+24:	ls
+25:	pwd
+26:	/bin/ls
+27:	clear
+28:	exit
+29:	ls
+30:	pwd
+31:	/bin/ls
+32:	help
+33:	help help
+34:	help exit
+35:	exit
+36:	exit
+37:	ls
+38:	ls -la
+39:	pwd
+40:	./my_shell
+41:	;s
+42:	ls
+43:	history
+44:	help
+45:	exit
+46:	exit
+47:	exit
+48:	sadsad
+49:	asdsaddasdas
+50:	sadsal;dsa;ld;sla
+51:	sdlksadkas;ldksa
+52:	ls
+53:	pwd
+54:	clear
+55:	ls
+56:	exit
+57:	exit
+58:	ls
+59:	ls -la
+60:	ls
+61:	ls
+62:	/bin/ls
+63:	clear
+64:	exit
+65:	ls
+66:	exit
+67:	exit
+68:	ls
+69:	pwd
+70:	/bin/ks
+71:	/bin/ls
+72:	exit
+73:	ls
+74:	pwd
+75:	help
+76:	clear
+77:	ls
+78:	exit
+79:	exit
+80:	ls
+81:	exit
+82:	ls
+83:	pwd
+84:	exit
+85:	exit
+86:	ls
+87:	pwd
+88:	/bin/ls
+89:	ls -la
+90:	clear
+91:	ls
+92:	pwd
+93:	ls -la

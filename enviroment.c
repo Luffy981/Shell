@@ -1,5 +1,9 @@
 #include "file.h"
-extern char **environ;
+/**
+ * _getenv - Function to get variable from enviroment
+ * @path_name: Variable name of enviroment
+ * Return: Return variable path
+ */
 
 char *_getenv(char *path_name)
 {
@@ -23,7 +27,11 @@ char *_getenv(char *path_name)
 	}
 	return (NULL);
 }
-
+/**
+ * _setenv - Function to set variable of enviroment
+ * @path_name: Variable name to set
+ * Return: Return success or fail set enviroment
+ */
 int _setenv(char *path_name)
 {
 	char buffer[100];
@@ -32,25 +40,26 @@ int _setenv(char *path_name)
 	char *duplicate;
 	int i;
 	int a = 0;
-	for(i = 0; i < 30; i++)
-		if(_strncmp(environ[i], path_name, strlen(path_name)) == 0)
+
+	for (i = 0; i < 30; i++)
+		if (_strncmp(environ[i], path_name, strlen(path_name)) == 0)
 			break;
 	duplicate = strdup(environ[i]);
-	while(duplicate[a] != '=')
+	while (duplicate[a] != '=')
 	{
 		a++;
 	}
-	pwd = getcwd(buffer,100);
-	vodka = malloc(sizeof(char) * (a + strlen(pwd) + 1));
-	if(vodka == NULL)
-		return(0);
+	pwd = getcwd(buffer, 100);
+	vodka = malloc(sizeof(char) * (a + len_str(pwd) + 1));
+	if (vodka == NULL)
+		return (0);
 	a = 0;
-	while(duplicate[a] != '/')
+	while (duplicate[a] != '/')
 	{
-		vodka[a] = duplicate [a];
+		vodka[a] = duplicate[a];
 		a++;
 	}
-	while(*pwd !='\0')
+	while (*pwd != '\0')
 	{
 		vodka[a] = *pwd;
 		a++;
@@ -60,5 +69,5 @@ int _setenv(char *path_name)
 	environ[i] = vodka;
 	free(vodka);
 	free(duplicate);
-	return(1);
+	return (1);
 }

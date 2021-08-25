@@ -1,14 +1,20 @@
 #include "file.h"
-char * str_tok(char *buffer, const char *delimiter)
+/**
+ * str_tok - Function to cut string
+ * @buffer: Buffer
+ * @d: Delimiter
+ * Return: Return string
+ */
+char *str_tok(char *buffer, const char *d)
 {
-	static char *save = NULL;
+	static char *save;
 	char *string = NULL;
 	char *set = NULL;
 
 	buffer = buffer ? buffer : save;
 	if (*buffer != '\0')
 	{
-		while(*buffer == ' ')
+		while (*buffer == ' ')
 			buffer++;
 		set = buffer;
 		if (!*set)
@@ -17,11 +23,11 @@ char * str_tok(char *buffer, const char *delimiter)
 		} else
 		{
 			string = set;
-			while (*set != *delimiter && *set != *(delimiter + 1) && *set != '\0')
+			while (*set != *d && *set != *(d + 1) && *set != '\0')
 			{
 				set++;
 			}
-			if(set != NULL)
+			if (set != NULL)
 			{
 				*set = '\0';
 				set++;
@@ -31,7 +37,13 @@ char * str_tok(char *buffer, const char *delimiter)
 	}
 	return (string);
 }
-char **tokenizer(char *buffer , char *delimiter)
+/**
+ * tokenizer - Function to tokens
+ * @buffer: Buffer
+ * @delimiter: Delimiter
+ * Return: Return array of strings
+ */
+char **tokenizer(char *buffer, char *delimiter)
 {
 	char **tokens = NULL;
 	size_t i = 0;
@@ -42,20 +54,20 @@ char **tokenizer(char *buffer , char *delimiter)
 	tokens = malloc(sizeof(char *) * mcount);
 	if (tokens == NULL)
 		return (NULL);
-	if((*buffer == '\n' || *buffer == ' ') && *(buffer + 1) == '\0')
+	if ((*buffer == '\n' || *buffer == ' ') && *(buffer + 1) == '\0')
 	{
-		return(NULL);
+		return (NULL);
 	}
-	while(*buffer == ' ')
+	while (*buffer == ' ')
 		buffer++;
-	while ((tokens[i] = str_tok(buffer,delimiter)) != NULL)
+	while ((tokens[i] = str_tok(buffer, delimiter)) != NULL)
 	{
 		i++;
 		if (i >= mcount)
 		{
-			tokens = realloc(tokens , sizeof(char *) * (i+1));
+			tokens = realloc(tokens, sizeof(char *) * (i + 1));
 			if (tokens == NULL)
-				return(NULL);
+				return (NULL);
 		}
 		buffer = NULL;
 	}

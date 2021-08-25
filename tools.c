@@ -16,12 +16,12 @@ int _atoi(char *string_number)
 	for (scale = 1; i >= 0; i -= 1, scale *= 10)
 		if (string_number[i] == '-')
 			resolve *= -1;
-	        else
+		else
 			resolve += (string_number[i] & 0x0F) * scale;
 	return (resolve);
 }
 /**
- * unsigned_int_to_buffer - determines whether @string includes a search_string
+ * un_int_to_buffer - determines whether @string includes a search_string
  * @number: number to transform
  * @buffer: buffer to save
  * @idx: index of a buffer
