@@ -6,7 +6,7 @@
  */
 char *file_read(char *namefile)
 {
-	size_t size;
+	ssize_t size;
 	int fd;
 	char *buffer;
 	struct stat st;

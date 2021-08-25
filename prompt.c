@@ -8,6 +8,7 @@ void handle_sigint(int sig)
 {
 	char s[100];
 
+	UNUSED(sig);
 	printf("\n%s$", getcwd(s, 100));
 	fflush(stdout);
 }
@@ -22,6 +23,7 @@ int signal_C(void)
 		write(2, "Could not set signal handler\n", 29);
 		return (EXIT_FAILURE);
 	}
+	return(0);
 }
 /**
  * check_match_return - Function pointer to function
@@ -77,6 +79,8 @@ int main(int argc, char *argv[], char **enviroment)
 	char s[100];
 	char (*f)(vars_t *r);
 
+	UNUSED(argc);
+	UNUSED(argv);
 	if (isatty(STDIN_FILENO))
 		printf("%s$", getcwd(s, 100));
 	signal_C();
@@ -99,4 +103,5 @@ int main(int argc, char *argv[], char **enviroment)
 	}
 	if (isatty(STDIN_FILENO))
 		putchar('\n');
+	exit(98);
 }

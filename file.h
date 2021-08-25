@@ -13,6 +13,7 @@
 #include <errno.h>
 #include <signal.h>
 
+#define UNUSED(x) (void)(x)
 
 /*Global Variable*/
 extern char **environ;
@@ -26,25 +27,25 @@ typedef struct variables
 	char **history; /*To print history */
 	char *command;
 	struct variables *next;
-}vars_t;
+} vars_t;
 
 typedef struct arguments
 {
 	char *n; /*String to do match*/
 	char (*f)(vars_t *r); /*Pointer to function after do match*/
-}arg_t;
+} arg_t;
 
 typedef struct com_help
 {
 	char *name;
 	char (*p)(vars_t *r);
-}help_v;
+} help_v;
 
 /*Main*/
-int main (int argc , char *argv[] , char **enviroment);
+int main(int argc , char *argv[] , char **enviroment);
 char **tokenizer(char *buffer , char *delimiter);
 char * str_tok(char *buffer, const char *delimiter);
-char (*match (vars_t *m))(vars_t *n);
+char (*match(vars_t *m))(vars_t *n);
 char file_exit(vars_t *vars);
 int signal_C(void);
 

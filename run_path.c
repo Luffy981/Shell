@@ -75,6 +75,7 @@ int check2_path(vars_t *vars, char **enviroment)
 	free(duplicate), free(tokens);
 	if (i == 9)
 		return (1);
+	return(1);
 }
 /**
  * iter_number - Function to iter number

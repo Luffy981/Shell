@@ -10,7 +10,7 @@ char (*match(vars_t *m))(vars_t *n)
 	arg_t op[] = {
 		{"exit", file_exit},
 		{"cd", change_directory},
-		{"history", print_history},
+		/*{"history", print_history},*/
 		{"help", help_func},
 		{NULL, NULL}
 	};

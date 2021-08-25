@@ -4,7 +4,7 @@
  * @vars: Structure parameter
  * Return: Return value
  */
-void add_history(vars_t *vars)
+/*void add_history(vars_t *vars)
 {
 	int fd;
 	char *buffer = NULL;
@@ -21,18 +21,18 @@ void add_history(vars_t *vars)
 	fd = write_file("history", 4,  buffer, number, ":\t", vars->buffer);
 	if (fd == -1)
 		return;
-}
+		}*/
 /**
  * get_index - Function to save history index
  * Return: Return buffer with index
  */
-char *get_index(void)
+/*char *get_index(void)
 {
 	char *number = NULL;
 	int n;
 	int ratoi;
-	char *buffer = NULL;
 	int fd;
+	char *buffer = NULL;
 
 	number = file_read("index");
 	if (number == NULL)
@@ -49,7 +49,7 @@ char *get_index(void)
 		un_int_to_buffer(ratoi, buffer, 0);
 	fd = write_file("index", 1, buffer);
 	return (buffer);
-}
+	}*/
 /**
  * only_chars - Function to evalue only chars
  * @str: string to evalue
@@ -57,20 +57,20 @@ char *get_index(void)
  * @until: Parameter
  * Return: Return value
  */
-int only_chars(char *str, char character, char until)
+/*int only_chars(char *str, char character, char until)
 {
-	if (!str | *str == until)
+	if (!str || *str == until)
 		return (1);
 	if (*str == character)
 		return (only_chars(str + 1, character, until));
 	return (0);
-}
+	}*/
 /**
  * print_history - Function to print history
  * @vars: Structure parameter
  * Return: Return success or fail
  */
-char print_history(vars_t *vars)
+/*char print_history(vars_t *vars)
 {
 	ssize_t fd, r;
 	char *buff;
@@ -92,13 +92,13 @@ char print_history(vars_t *vars)
 	free(buff);
 	close(fd);
 	return (r);
-}
+	}*/
 /**
  * sizeofnum - Function  to get the size of nume
  * @number: Number to evaluate
  * Return: Return value
  */
-int sizeofnum(int number)
+/*int sizeofnum(int number)
 {
 	if (number / 10)
 	{
@@ -106,3 +106,4 @@ int sizeofnum(int number)
 	}
 	return (0);
 }
+*/
