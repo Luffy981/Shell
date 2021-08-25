@@ -45,6 +45,7 @@ int check2_path(vars_t *vars, char **enviroment)
 			break;
 	duplicate = str_dup(enviroment[i]); /* Duplicate PATH string*/
 	tokens = tokenizer(duplicate, delim);
+	free(duplicate);
 	i = 0;
 	while (tokens[i] != NULL)
 	{
@@ -67,7 +68,7 @@ int check2_path(vars_t *vars, char **enviroment)
 				wait(&status); /*Wait for the child to finish*/
 				break;
 			}
-			free(pun1), free(pun2);
+			free(pun1), free(pun2),free(tokens);
 			return (0);
 		}
 		free(pun1), free(pun2), i++;

@@ -98,7 +98,6 @@ int main(int argc, char *argv[], char **enviroment)
 			check_match_return(f, &vars, enviroment);
 		}
 		free(vars.arrays);
-		/*free(vars.buffer);*/
 		continue;
 	}
 	if (isatty(STDIN_FILENO))

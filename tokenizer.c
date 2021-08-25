@@ -66,7 +66,7 @@ char **tokenizer(char *buffer, char *delimiter)
 		i++;
 		if (i >= mcount)
 		{
-			ptr = _realloc(tokens,(sizeof(char *) * i), i + 1);
+			ptr = _realloc(tokens, 8 * i , 8 * (i + 1));
 			tokens = ptr;
 			if (tokens == NULL)
 				return (NULL);
