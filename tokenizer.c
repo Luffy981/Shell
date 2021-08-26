@@ -55,13 +55,13 @@ char **tokenizer(char *buffer, char *delimiter)
 
 	if (buffer == NULL)
 		return (NULL);
-	tokens = malloc(sizeof(char *) * mcount);
-	if (tokens == NULL)
-		return (NULL);
 	if ((*buffer == '\n' || *buffer == ' ') && *(buffer + 1) == '\0')
 	{
 		return (NULL);
 	}
+	tokens = malloc(sizeof(char *) * mcount);
+	if (tokens == NULL)
+		return (NULL);
 	while (*buffer == ' ')
 		buffer++;
 	while ((tokens[i] = str_tok(buffer, delimiter)) != NULL)

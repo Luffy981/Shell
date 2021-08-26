@@ -104,6 +104,7 @@ int main(int argc, char *argv[], char **enviroment)
 				PRINT(getcwd(s, 100));
 				PRINT("$");
 			}
+			continue;
 		} else
 		{
 			f = match(&vars);

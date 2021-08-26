@@ -42,13 +42,11 @@ int check2_path(vars_t *vars, char **enviroment)
 		if (_strncmp(enviroment[i], "PATH", 4) == 0)/*Find string PATH*/
 			break;
 	duplicate = str_dup(enviroment[i]); /* Duplicate PATH string*/
-	tokens = tokenizer(duplicate, delim);
-	i = 0;
+	tokens = tokenizer(duplicate, delim), i = 0;
 	while (tokens[i] != NULL)
 	{
-		pun1 = str_cat(tokens[i], "/"); /*Form to pathname*/
-		pun2 = str_cat(pun1, vars->arrays[0]);
-		fd = access(pun2, F_OK);
+		pun1 = str_cat(tokens[i], "/");
+		pun2 = str_cat(pun1, vars->arrays[0]), fd = access(pun2, F_OK);
 		if (fd  == 0) /*Verified pathname*/
 		{
 			child = fork(); /*Create a child*/
@@ -56,10 +54,9 @@ int check2_path(vars_t *vars, char **enviroment)
 			{
 			case 0: /*Child created*/ /*Execute pathname*/
 				execve(pun2, vars->arrays, enviroment);
-				exit(errno); /*kill the fu*** child*/
+				exit(errno);
 				break;
 			case -1: /*Error to create a child*/
-				PRINT("Error to create a child");
 				break;
 			default: /*Father working*/
 				wait(&status); /*Wait for the child to finish*/
@@ -69,9 +66,12 @@ int check2_path(vars_t *vars, char **enviroment)
 		}
 		free(pun1), free(pun2), i++;
 	}
-	free(tokens), free(duplicate), free(pun2), free(pun1);
-	if (i == 9)
+	if (i == 10)
+	{
+		free(tokens), free(duplicate);
 		return (1);
+	}
+	free(tokens), free(duplicate), free(pun1), free(pun2);
 	return (0);
 }
 /**
