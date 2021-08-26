@@ -98,7 +98,7 @@ int main(int argc, char *argv[], char **enviroment)
 	signal_C();
 	while (getline(&(vars.buffer), &buffer_len, stdin) != -1)
 	{
-		/*add_history(&vars);*/
+		add_history(&vars);
 		vars.arrays = tokenizer(vars.buffer, delimiter);
 		if (vars.arrays == NULL)
 		{
