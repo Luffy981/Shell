@@ -19,18 +19,31 @@
 extern char **environ;
 
 /*Structures*/
+/**
+ * struct variables - Struct to save variables
+ * @buffer: Buffer to getline
+ * @arrays: Array of arrays of pointers
+ */
 typedef struct variables
 {
 	char *buffer; /*Buffer to getline*/
 	char **arrays; /*Array of pointers to strings*/
 } vars_t;
-
+/**
+ * struct arguments - Structure to match
+ * @n: name to match
+ * @f: Pointer to function
+ */
 typedef struct arguments
 {
 	char *n; /*String to do match*/
 	char (*f)(vars_t *r); /*Pointer to function after do match*/
 } arg_t;
-
+/**
+ * struct com_help - Struct to help match
+ * @name: name to match
+ * @p: Pointer to function
+ */
 typedef struct com_help
 {
 	char *name;
@@ -38,8 +51,8 @@ typedef struct com_help
 } help_v;
 
 /*Main*/
-int main(int argc , char *argv[] , char **enviroment);
-char **tokenizer(char *buffer , char *delimiter);
+int main(int argc, char *argv[], char **enviroment);
+char **tokenizer(char *buffer, char *delimiter);
 char *str_tok(char *buffer, char *d);
 char (*match(vars_t *m))(vars_t *n);
 char file_exit(vars_t *vars);
@@ -73,7 +86,7 @@ void add_history(vars_t *vars);
 char print_history(vars_t *vars);
 char *file_read(char *namefile);
 int write_file(char *namef, int n, ...);
-int only_chars(char *str, char character , char until);
+int only_chars(char *str, char character, char until);
 int _atoi(char *string_number);
 unsigned int un_int_to_buffer(int number, char *buffer, int idx);
 int sizeofnum(int number);
