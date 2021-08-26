@@ -174,3 +174,5 @@ $
 ### Author
 
 Smith Flores - [GitHub](https://github.com/ChristianVaras) - [Twiter](https://twitter.com/Luffy_981) - [Facebook](https://web.facebook.com/JhonSmithSoulOfGold/)
+
+Christian Varas - [GitHub](https://github.com/ChristianVaras)
