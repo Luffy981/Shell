@@ -9,7 +9,9 @@ void handle_sigint(int sig)
 	char s[100];
 
 	UNUSED(sig);
-	printf("\n%s$", getcwd(s, 100));
+	PRINT("\n");
+	PRINT(getcwd(s, 100));
+	PRINT("$");
 	fflush(stdout);
 }
 /**
@@ -44,24 +46,28 @@ void check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 		{
 			check_path(vars, enviroment);
 			if (isatty(STDIN_FILENO))
-				printf("%s$", getcwd(s, 100));
+				PRINT(getcwd(s, 100)), PRINT("$");
 		} else if (check2_path(vars, enviroment) == 0)
 		{
 			if (isatty(STDIN_FILENO))
-				printf("%s$", getcwd(s, 100));
+				PRINT(getcwd(s, 100)), PRINT("$");
 		} else
 		{
-			printf("%s: %s", vars->arrays[0], err_find);
 			if (isatty(STDIN_FILENO))
-				putchar(10);
+			{
+				PRINT(vars->arrays[0]), PRINT(": ");
+				PRINT(err_find);
+			}
 			if (isatty(STDIN_FILENO))
-				printf("%s$", getcwd(s, 100));
+				PRINT("\n");
+			if (isatty(STDIN_FILENO))
+				PRINT(getcwd(s, 100)), PRINT("$");
 		}
 	} else
 	{
 		f(vars);
 		if (isatty(STDIN_FILENO))
-			printf("%s$", getcwd(s, 100));
+			PRINT(getcwd(s, 100)), PRINT("$");
 	}
 }
 /**
@@ -82,7 +88,10 @@ int main(int argc, char *argv[], char **enviroment)
 	UNUSED(argc);
 	UNUSED(argv);
 	if (isatty(STDIN_FILENO))
-		printf("%s$", getcwd(s, 100));
+	{
+		PRINT(getcwd(s, 100));
+		PRINT("$");
+	}
 	signal_C();
 	while (getline(&(vars.buffer), &buffer_len, stdin) != -1)
 	{
@@ -91,7 +100,10 @@ int main(int argc, char *argv[], char **enviroment)
 		if (vars.arrays == NULL)
 		{
 			if (isatty(STDIN_FILENO))
-				printf("%s$", getcwd(s, 100));
+			{
+				PRINT(getcwd(s, 100));
+				PRINT("$");
+			}
 		} else
 		{
 			f = match(&vars);
@@ -101,6 +113,6 @@ int main(int argc, char *argv[], char **enviroment)
 		continue;
 	}
 	if (isatty(STDIN_FILENO))
-		putchar('\n');
+		PRINT("\n");
 	exit(98);
 }

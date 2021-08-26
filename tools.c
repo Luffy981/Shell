@@ -11,7 +11,7 @@ int _atoi(char *string_number)
 	if (!string_number)
 		return (0);
 
-	i = strlen(string_number) - 1;
+	i = len_str(string_number) - 1;
 	resolve = 0;
 	for (scale = 1; i >= 0; i -= 1, scale *= 10)
 		if (string_number[i] == '-')

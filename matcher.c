@@ -55,10 +55,10 @@ char change_directory(vars_t *vars)
 
 	/* change directory */
 	if (_setenv("OLDPWD") == 0)
-		printf("Error to set old PWD");
+		PRINT("Error to set old PWD");
 	if (chdir(pun2) != 0)
-		printf("Error to change directory\n");
+		PRINT("Error to change directory\n");
 	if (_setenv("PWD") == 0)
-		printf("Error to set current PWD");
+		PRINT("Error to set current PWD");
 	return (0);
 }

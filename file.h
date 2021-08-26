@@ -14,6 +14,7 @@
 #include <signal.h>
 
 #define UNUSED(x) (void)(x)
+#define PRINT(C) (write(STDOUT_FILENO, C, len_str(C)))
 
 /*Global Variable*/
 extern char **environ;
