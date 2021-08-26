@@ -163,7 +163,7 @@ $
 ## How to run the SHELL on a new server?
 
 ### First steap:
-		Clone the shell repository [Url_To_Repository](https://github.com/Luffy981/simple_shell)
+		Clone the shell repository [HTTPS](https://github.com/Luffy981/simple_shell.git) - [SSH](git@github.com:Luffy981/simple_shell.git)
 ### Second steap:
 		Run all `* .c` files from the repository like this : gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ### Third steap:
