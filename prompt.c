@@ -6,12 +6,10 @@
  */
 void handle_sigint(int sig)
 {
-	char s[100];
 
 	UNUSED(sig);
 	PRINT("\n");
-	PRINT(getcwd(s, 100));
-	PRINT("$");
+	PRINT("$ ");
 	fflush(stdout);
 }
 /**
@@ -37,7 +35,6 @@ int signal_C(void)
 int check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 {
 	int fd;
-	char s[100];
 	char *err_find = "No such file or directory";
 
 	if (f == NULL)
@@ -47,11 +44,11 @@ int check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 		{
 			check_path(vars, enviroment);
 			if (isatty(STDIN_FILENO))
-				PRINT(getcwd(s, 100)), PRINT("$");
+				PRINT("$ ");
 		} else if (check2_path(vars, enviroment) == 0)
 		{
 			if (isatty(STDIN_FILENO))
-				PRINT(getcwd(s, 100)), PRINT("$");
+				PRINT("$ ");
 		} else
 		{
 			if (isatty(STDIN_FILENO))
@@ -62,13 +59,13 @@ int check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 			if (isatty(STDIN_FILENO))
 				PRINT("\n");
 			if (isatty(STDIN_FILENO))
-				PRINT(getcwd(s, 100)), PRINT("$");
+				PRINT("$ ");
 		}
 	} else
 	{
 		f(vars);
 		if (isatty(STDIN_FILENO))
-			PRINT(getcwd(s, 100)), PRINT("$");
+			PRINT("$");
 		return (0);
 	}
 	return (1);
@@ -85,15 +82,13 @@ int main(int argc, char *argv[], char **enviroment)
 	vars_t vars = {NULL};
 	size_t buffer_len = 0;
 	char *delimiter = " \n";
-	char s[100];
 	char (*f)(vars_t *r);
 
 	UNUSED(argc);
 	UNUSED(argv);
 	if (isatty(STDIN_FILENO))
 	{
-		PRINT(getcwd(s, 100));
-		PRINT("$");
+		PRINT("$ ");
 	}
 	signal_C();
 	while (getline(&(vars.buffer), &buffer_len, stdin) != -1)
@@ -104,8 +99,7 @@ int main(int argc, char *argv[], char **enviroment)
 		{
 			if (isatty(STDIN_FILENO))
 			{
-				PRINT(getcwd(s, 100));
-				PRINT("$");
+				PRINT("$ ");
 			}
 			continue;
 		} else
