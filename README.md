@@ -76,9 +76,25 @@ $
 
 | Files | Description |
 | --- | --- |
-| [simpleshell.h](https://github.com/CarolinaDCode/simple_shell/blob/master/simpleshell.h) | Header file. Contain all the prototype name of the functions. |
-| [AUTHORS](https://github.com/CarolinaDCode/simple_shell/blob/master/AUTHORS) | Contains the authors of the project. |
-| [man_1_simple_shell](https://github.com/CarolinaDCode/simple_shell/blob/master/man_1_simple_shell) | man page containing details about the usage of shell function.|
+| [file.h](https://github.com/Luffy981/simple_shell/blob/master/file.h) | Header file. Contain all the prototype name of the functions. |
+| [AUTHORS](https://github.com/Luffy981/simple_shell/blob/master/AUTHORS) | Contains the authors of the project. |
+| [man_1_simple_shell](https://github.com/Luffy981/simple_shell/blob/master/AUTHORS) | man page containing details about the usage of shell function.|
+| [Cd](https://github.com/Luffy981/simple_shell/blob/master/Cd) | Information to print when command [ help cd ] is used
+| [Exit](https://github.com/Luffy981/simple_shell/blob/master/Exit) | Information to print when command [ help exit ] is used
+| [Help](https://github.com/Luffy981/simple_shell/blob/master/Help) | Information to print when command [ help ] is used
+| [Help_history](https://github.com/Luffy981/simple_shell/blob/master/Help_history) | Information to print when command [ help history ] is used
+| [Help_to_help](https://github.com/Luffy981/simple_shell/blob/master/Help_to_help) | Information to print when command [ help help ] is used
+| [enviroment.c](https://github.com/Luffy981/simple_shell/blob/master/enviroment.c) | File with functions to handle the enviroment
+| [free.c](https://github.com/Luffy981/simple_shell/blob/master/free.c) | File with function to free some memory leaks
+| [help.c](https://github.com/Luffy981/simple_shell/blob/master/help.c) | File with help functions
+| [matche.c](https://github.com/Luffy981/simple_shell/blob/master/matcher.c) | File with matcher to builtins , exit and change directory functions
+| [open_files.c](https://github.com/Luffy981/simple_shell/blob/master/open_files.c) | File with functions to open files , read and write on them
+| [print_help.c](https://github.com/Luffy981/simple_shell/blob/master/print_help.c) | File with functions to print content of files to [ help <file> ] command
+| [prompt.c](https://github.com/Luffy981/simple_shell/blob/master/prompt.c) | File with main function and function to handlre [ CTRL + C ]
+| [run_path.c](https://github.com/Luffy981/simple_shell/blob/master/run_path.c) | File with functions that perform child processes to execute paths of the PATH
+| [strings.c](https://github.com/Luffy981/simple_shell/blob/master/strings.c) | File with functions tools to strings
+| [tokenizer.c](https://github.com/Luffy981/simple_shell/blob/master/tokenizer.c) | File with tokenizer function that tokenize and string and works with str_tok function
+| [tools.c](https://github.com/Luffy981/simple_shell/blob/master/tools.c) | File with functions tools to strings
 
 ### List of allowed functions and system calls
 `access` (man 2 access)
@@ -113,8 +129,6 @@ $
 `wait4` (man 2 wait4)
 `write` (man 2 write)
 
-### Authors
+### Author
 
-Smith Flores - [GitHub](https://github.com/ChristianVaras)
-
-Christian Varas - [GitHub](https://github.com/Luffy981)
+Smith Flores - [GitHub](https://github.com/ChristianVaras) - [Twiter](https://twitter.com/Luffy_981) - [Facebook](https://web.facebook.com/JhonSmithSoulOfGold/)
