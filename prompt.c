@@ -116,6 +116,7 @@ int main(int argc, char *argv[], char **enviroment)
 		free(vars.arrays);
 		continue;
 	}
+	free(vars.buffer);
 	if (isatty(STDIN_FILENO))
 		PRINT("\n");
 	exit(98);
