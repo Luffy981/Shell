@@ -169,7 +169,8 @@ $
 ### Third steap:
 		Run the SHELL (executable file) and enjoy!
 
-		:monkey:
+# :monkey:
+
 ### Author
 
 Smith Flores - [GitHub](https://github.com/ChristianVaras) - [Twiter](https://twitter.com/Luffy_981) - [Facebook](https://web.facebook.com/JhonSmithSoulOfGold/)
