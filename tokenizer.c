@@ -5,7 +5,7 @@
  * @d: Delimiter
  * Return: Return string
  */
-char *str_tok(char *buffer, const char *d)
+char *str_tok(char *buffer,  char *d)
 {
 	static char *save;
 	char *string = NULL;
@@ -27,15 +27,18 @@ char *str_tok(char *buffer, const char *d)
 			{
 				set++;
 			}
-			if (set != NULL)
+			if (*set != '\0')
 			{
 				*set = '\0';
 				set++;
 			}
 			save = set;
+			return (string);
 		}
 	}
-	return (string);
+	save = NULL;
+	buffer = NULL;
+	return (NULL);
 }
 /**
  * tokenizer - Function to tokens

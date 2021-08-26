@@ -7,7 +7,7 @@ void free_struct(vars_t *vars)
 {
 	int i = 0;
 
-	while (vars->arrays[i])
+	while (vars->arrays[i] != NULL)
 	{
 		free(vars->arrays[i]);
 		i++;

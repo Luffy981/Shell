@@ -23,10 +23,6 @@ typedef struct variables
 {
 	char *buffer; /*Buffer to getline*/
 	char **arrays; /*Array of pointers to strings*/
-
-	char **history; /*To print history */
-	char *command;
-	struct variables *next;
 } vars_t;
 
 typedef struct arguments
@@ -44,7 +40,7 @@ typedef struct com_help
 /*Main*/
 int main(int argc , char *argv[] , char **enviroment);
 char **tokenizer(char *buffer , char *delimiter);
-char * str_tok(char *buffer, const char *delimiter);
+char *str_tok(char *buffer, char *d);
 char (*match(vars_t *m))(vars_t *n);
 char file_exit(vars_t *vars);
 int signal_C(void);

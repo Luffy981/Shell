@@ -29,8 +29,7 @@ char (*match(vars_t *m))(vars_t *n)
  */
 char file_exit(vars_t *vars)
 {
-	/*free_struct(vars);*/
-	free(vars->buffer);
+	free_struct(vars);
 
 	exit(98);
 	return (0);

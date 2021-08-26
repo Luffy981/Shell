@@ -15,7 +15,6 @@ void check_path(vars_t *vars, char **enviroment)
 	{
 	case 0:      /*Child created*/ /*execute pathname*/
 		execve(vars->arrays[0], vars->arrays, enviroment);
-		free_struct(vars);/*free memory of child*/
 		exit(errno);/*kill the fu*** child*/
 		break;
 	case -1:     /*Error to create a child*/
@@ -25,7 +24,6 @@ void check_path(vars_t *vars, char **enviroment)
 		wait(&status); /*Wait for the child to finish*/
 		break;
 	}
-	free_struct(vars); /*free memory of parent*/
 }
 /**
  * check2_path - Function to check path
@@ -45,7 +43,6 @@ int check2_path(vars_t *vars, char **enviroment)
 			break;
 	duplicate = str_dup(enviroment[i]); /* Duplicate PATH string*/
 	tokens = tokenizer(duplicate, delim);
-	free(duplicate);
 	i = 0;
 	while (tokens[i] != NULL)
 	{
@@ -68,15 +65,16 @@ int check2_path(vars_t *vars, char **enviroment)
 				wait(&status); /*Wait for the child to finish*/
 				break;
 			}
-			free(pun1), free(pun2),free(tokens);
-			return (0);
+			break;
 		}
-		free(pun1), free(pun2), i++;
+		free(pun1);
+		free(pun2);
+		i++;
 	}
-	free(tokens);
+	free(tokens), free(duplicate), free(pun2), free(pun1);
 	if (i == 9)
 		return (1);
-	return(1);
+	return(0);
 }
 /**
  * iter_number - Function to iter number

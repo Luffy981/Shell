@@ -97,7 +97,7 @@ int main(int argc, char *argv[], char **enviroment)
 			f = match(&vars);
 			check_match_return(f, &vars, enviroment);
 		}
-		free(vars.arrays);
+		free_struct(&vars);
 		continue;
 	}
 	if (isatty(STDIN_FILENO))
