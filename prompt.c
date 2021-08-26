@@ -33,7 +33,7 @@ int signal_C(void)
  * @vars: Structure
  * @enviroment: Enviroment
  */
-void check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
+int check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 {
 	int fd;
 	char s[100];
@@ -68,7 +68,9 @@ void check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 		f(vars);
 		if (isatty(STDIN_FILENO))
 			PRINT(getcwd(s, 100)), PRINT("$");
+		return(0);
 	}
+	return(1);
 }
 /**
  * main - Function main
@@ -110,7 +112,7 @@ int main(int argc, char *argv[], char **enviroment)
 			f = match(&vars);
 			check_match_return(f, &vars, enviroment);
 		}
-		free_struct(&vars);
+		free(vars.arrays);
 		continue;
 	}
 	if (isatty(STDIN_FILENO))

@@ -58,7 +58,7 @@ char *str_tok(char *buffer, char *d);
 char (*match(vars_t *m))(vars_t *n);
 char file_exit(vars_t *vars);
 int signal_C(void);
-
+int check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment);
 /*Tools to strings*/
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *str_cat(char *s1, char *s2);

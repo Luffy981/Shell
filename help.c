@@ -17,7 +17,6 @@ char help_func(vars_t *vars)
 	else
 	{
 		str = file_read("Help");
-
 		write(1, str, strlen(str));
 		free(str);
 	}
