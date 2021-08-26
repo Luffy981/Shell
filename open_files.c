@@ -48,7 +48,7 @@ int write_file(char *namef, int n, ...)
 	for (; n > 0 ; n--)
 	{
 		currentbuff = va_arg(buffers, char*);
-		w += write(fd, currentbuff, strlen(currentbuff));
+		w += write(fd, currentbuff, len_str(currentbuff));
 	}
 	close(fd);
 	va_end(buffers);
