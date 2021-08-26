@@ -159,7 +159,9 @@ $
 `wait4` (man 2 wait4)
 
 `write` (man 2 write)
+
 ## How to run the SHELL on a new server?
+
 ### First steap:
 		Clone the shell repository [Url_To_Repository](https://github.com/Luffy981/simple_shell)
 ### Second steap:
