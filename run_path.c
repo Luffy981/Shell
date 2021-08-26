@@ -18,7 +18,7 @@ void check_path(vars_t *vars, char **enviroment)
 		exit(errno);/*kill the fu*** child*/
 		break;
 	case -1:     /*Error to create a child*/
-		printf("Error to create a child");
+		PRINT("Error to create a child");
 		break;
 	default:     /*Father working*/
 		wait(&status); /*Wait for the child to finish*/

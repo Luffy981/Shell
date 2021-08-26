@@ -17,33 +17,7 @@ size_t len_str(char *str)
 	}
 	return (len);
 }
-/**
- * _strncmp -  Function compare n bytes
- * @s1:  String
- * @s2:  String
- * @n:  n bytes
- * Return: Return success or fail
- */
-int _strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t i = 0;
 
-	while (s1[i] == s2[i] && i < n)
-	{
-		if (i + 1 == n)
-		{
-			break;
-		}
-
-		i++;
-	}
-
-	if (s1[i] == s2[i])
-	{
-		return (0);
-	}
-	return (1);
-}
 /**
  * str_cat - Function  to join two strings
  * @s1: String
@@ -76,6 +50,33 @@ char *str_cat(char *s1, char *s2)
 	}
 	string[i] = '\0';
 	return (string);
+}
+/**
+ * _strncmp -  Function compare n bytes
+ * @s1:  String
+ * @s2:  String
+ * @n:  n bytes
+ * Return: Return success or fail
+ */
+int _strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t i = 0;
+
+	while (s1[i] == s2[i] && i < n)
+	{
+		if (i + 1 == n)
+		{
+			break;
+		}
+
+		i++;
+	}
+
+	if (s1[i] == s2[i])
+	{
+		return (0);
+	}
+	return (1);
 }
 /**
  * str_dup - Function to duplicate a string

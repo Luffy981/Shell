@@ -42,9 +42,9 @@ int _setenv(char *path_name)
 	int a = 0;
 
 	for (i = 0; i < 30; i++)
-		if (_strncmp(environ[i], path_name, strlen(path_name)) == 0)
+		if (_strncmp(environ[i], path_name, len_str(path_name)) == 0)
 			break;
-	duplicate = strdup(environ[i]);
+	duplicate = str_dup(environ[i]);
 	while (duplicate[a] != '=')
 	{
 		a++;

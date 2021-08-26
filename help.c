@@ -17,7 +17,7 @@ char help_func(vars_t *vars)
 	else
 	{
 		str = file_read("Help");
-		write(1, str, strlen(str));
+		write(1, str, len_str(str));
 		free(str);
 	}
 	return (0);
@@ -39,7 +39,7 @@ char (*help_match(vars_t *vars))(vars_t *vars)
 	};
 	for (i = 0 ; h[i].p != NULL ; i++)
 	{
-		if (strcmp(vars->arrays[1], h[i].name) == 0)
+		if (_strcmp(vars->arrays[1], h[i].name) == 0)
 		{
 			break;
 		}

@@ -65,6 +65,7 @@ char *str_cat(char *s1, char *s2);
 size_t len_str(char *str);
 char *str_dup(char *str);
 void *fill_an_array(void *a, int el, unsigned int len);
+int _strcmp(char *s1, char *s2);
 
 /*Check path*/
 void check_path(vars_t *vars, char **enviroment);

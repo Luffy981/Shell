@@ -32,6 +32,7 @@ int signal_C(void)
  * @f: Pointer to function
  * @vars: Structure
  * @enviroment: Enviroment
+ * Return: Return value
  */
 int check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 {
@@ -68,9 +69,9 @@ int check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 		f(vars);
 		if (isatty(STDIN_FILENO))
 			PRINT(getcwd(s, 100)), PRINT("$");
-		return(0);
+		return (0);
 	}
-	return(1);
+	return (1);
 }
 /**
  * main - Function main

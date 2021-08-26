@@ -17,7 +17,7 @@ char (*match(vars_t *m))(vars_t *n)
 
 	for (i = 0 ; op[i].f != NULL ; i++)
 	{              /*compare strings*/
-		if (strcmp(op[i].n, (char *)m->arrays[0]) == 0)
+		if (_strcmp(op[i].n, (char *)m->arrays[0]) == 0)
 			break;
 	}
 	return (op[i].f);
