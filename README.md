@@ -167,7 +167,9 @@ $
 ### Second steap:
 		Run all `* .c` files from the repository like this : gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ### Third steap:
-		Run the SHELL (executable file) and enjoy! :monkey:
+		Run the SHELL (executable file) and enjoy!
+
+		:monkey:
 ### Author
 
 Smith Flores - [GitHub](https://github.com/ChristianVaras) - [Twiter](https://twitter.com/Luffy_981) - [Facebook](https://web.facebook.com/JhonSmithSoulOfGold/)
