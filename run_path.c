@@ -67,14 +67,12 @@ int check2_path(vars_t *vars, char **enviroment)
 			}
 			break;
 		}
-		free(pun1);
-		free(pun2);
-		i++;
+		free(pun1), free(pun2), i++;
 	}
 	free(tokens), free(duplicate), free(pun2), free(pun1);
 	if (i == 9)
 		return (1);
-	return(0);
+	return (0);
 }
 /**
  * iter_number - Function to iter number

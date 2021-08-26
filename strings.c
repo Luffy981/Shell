@@ -78,7 +78,7 @@ char *str_cat(char *s1, char *s2)
 	return (string);
 }
 /**
- * MyStrDup - Function to duplicate a string
+ * str_dup - Function to duplicate a string
  * @str: String
  * Return: Return duplicated string
  */

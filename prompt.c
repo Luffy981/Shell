@@ -23,7 +23,7 @@ int signal_C(void)
 		write(2, "Could not set signal handler\n", 29);
 		return (EXIT_FAILURE);
 	}
-	return(0);
+	return (0);
 }
 /**
  * check_match_return - Function pointer to function
