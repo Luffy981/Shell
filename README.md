@@ -169,7 +169,7 @@ $
 ### Third steap:
 		Run the SHELL (executable file) and enjoy!
 
-# :monkey:
+# :monkey:          :monkey:                :monkey:
 
 ### Author
 
