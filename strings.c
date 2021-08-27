@@ -6,7 +6,7 @@
  */
 size_t len_str(char *str)
 {
-	size_t len = 0;
+	size_t len = 1;
 
 	if (str == NULL)
 		return (0);
