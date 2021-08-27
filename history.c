@@ -40,12 +40,12 @@ char *get_index(void)
 	number = file_read("index");
 	if (number == NULL)
 		number = "0";
-	n = strlen(number);
+	n = len_str(number);
 	if (n < 1)
 		number = "0";
 	ratoi = _atoi(number);
 	ratoi++;
-	buffer = malloc(sizeof(char) * sizeofnum(ratoi) + 1);
+	buffer = malloc(sizeof(char) * sizeofnum(ratoi) + 2);
 	if (buffer == NULL)
 		buffer = "1";
 	else
