@@ -28,8 +28,8 @@ char *file_read(char *namefile)
 	{
 		close(fd);
 		free(buffer);
-	}
 		return (NULL);
+	}
 	close(fd);
 	buffer[size] = '\0';
 	return (buffer);
