@@ -6,9 +6,9 @@
  */
 size_t len_str(char *str)
 {
-	size_t len = 1;
+	size_t len = 0;
 
-	if (str == NULL)
+	if (str == NULL || *str == '\0')
 		return (0);
 	while (*str)
 	{
