@@ -49,7 +49,11 @@ char *get_index(void)
 	if (buffer == NULL)
 		buffer = "1";
 	else
+	{
+		for (n = 0; n < (sizeofnum(ratoi) + 2); n++)
+			buffer[n] = '\0';
 		un_int_to_buffer(ratoi, buffer, 0);
+	}
 	fd = write_file("index", 1, buffer);
 	free(number);
 	return (buffer);

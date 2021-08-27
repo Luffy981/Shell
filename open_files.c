@@ -19,9 +19,16 @@ char *file_read(char *namefile)
 	fstat(fd, &st);
 	buffer = malloc(sizeof(char) * st.st_size + 1);
 	if (buffer == NULL)
+	{
+		close(fd);
 		return (NULL);
+	}
 	size = read(fd, buffer, st.st_size);
 	if ((size) == -1)
+	{
+		close(fd);
+		free(buffer);
+	}
 		return (NULL);
 	close(fd);
 	buffer[size] = '\0';
@@ -48,6 +55,8 @@ int write_file(char *namef, int n, ...)
 	for (; n > 0 ; n--)
 	{
 		currentbuff = va_arg(buffers, char*);
+		if (currentbuff == NULL)
+			continue;
 		w += write(fd, currentbuff, len_str(currentbuff));
 	}
 	close(fd);
