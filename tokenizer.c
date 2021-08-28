@@ -14,7 +14,7 @@ char *str_tok(char *buffer,  char *d)
 	buffer = buffer ? buffer : save;
 	if (*buffer != '\0')
 	{
-		while (*buffer == ' ')
+		while (*buffer == ' ' || *buffer == '\n')
 			buffer++;
 		set = buffer;
 		if (!*set)
