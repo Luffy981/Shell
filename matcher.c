@@ -9,7 +9,7 @@ char (*match(vars_t *m))(vars_t *n)
 	int i;
 	arg_t op[] = {
 		{"exit", file_exit},
-		{"cd", change_directory},
+		/*{"cd", change_directory},*/
 		{"history", print_history},
 		{"help", help_func},
 		{NULL, NULL}
@@ -40,7 +40,7 @@ char file_exit(vars_t *vars)
  * Return: Return success or fail
  */
 
-char change_directory(vars_t *vars)
+/*char change_directory(vars_t *vars)
 {
 	char *home;
 	char *pun1 = NULL;
@@ -51,14 +51,15 @@ char change_directory(vars_t *vars)
 	if (vars->arrays[1])
 		pun2 = str_cat(pun1, vars->arrays[1]);
 	else
-		pun2 = pun1;
+	pun2 = pun1;*/
 
 	/* change directory */
-	if (_setenv("OLDPWD") == 0)
+	/*if (_setenv("OLDPWD") == 0)
 		PRINT("Error to set old PWD");
 	if (chdir(pun2) != 0)
+	{
 		PRINT("Error to change directory\n");
 	if (_setenv("PWD") == 0)
 		PRINT("Error to set current PWD");
 	return (0);
-}
+}*/
