@@ -9,7 +9,7 @@ char help_func(vars_t *vars)
 	char *str = NULL;
 	char (*f)(vars_t *h);
 
-	if (!vars->arrays[1] || vars->arrays[1] == "")
+	if (!vars->arrays[1])
 	{
 		str = file_read("Help");
 		write(1, str, len_str(str));
