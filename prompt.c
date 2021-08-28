@@ -51,13 +51,9 @@ int check_match_return(char (*f)(vars_t *r), vars_t *vars, char **enviroment)
 				PRINT("$ ");
 		} else
 		{
-			if (isatty(STDIN_FILENO))
-			{
-				PRINT(vars->arrays[0]), PRINT(": ");
-				PRINT(err_find);
-			}
-			if (isatty(STDIN_FILENO))
-				PRINT("\n");
+			PRINT(vars->arrays[0]), PRINT(": ");
+			PRINT(err_find);
+			PRINT("\n");
 			if (isatty(STDIN_FILENO))
 				PRINT("$ ");
 		}
