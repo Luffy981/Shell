@@ -34,32 +34,3 @@ char file_exit(vars_t *vars)
 	exit(98);
 	return (0);
 }
-/**
- * change_directory - Function to change directory
- * @vars: Structure
- * Return: Return success or fail
- */
-
-/*char change_directory(vars_t *vars)
-{
-	char *home;
-	char *pun1 = NULL;
-	char *pun2 = NULL;
-
-	home = _getenv("HOME");
-	pun1 = str_cat(home, "/");
-	if (vars->arrays[1])
-		pun2 = str_cat(pun1, vars->arrays[1]);
-	else
-	pun2 = pun1;*/
-
-	/* change directory */
-	/*if (_setenv("OLDPWD") == 0)
-		PRINT("Error to set old PWD");
-	if (chdir(pun2) != 0)
-	{
-		PRINT("Error to change directory\n");
-	if (_setenv("PWD") == 0)
-		PRINT("Error to set current PWD");
-	return (0);
-}*/
